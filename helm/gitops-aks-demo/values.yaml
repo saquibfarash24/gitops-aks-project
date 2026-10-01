@@ -21,3 +21,8 @@ probes:
     path: /health
     initialDelaySeconds: 10
     periodSeconds: 20
+
+
+monitoring:
+  serviceMonitor:
+    enabled: true

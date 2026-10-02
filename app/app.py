@@ -3,7 +3,7 @@ from prometheus_client import Counter, generate_latest, CONTENT_TYPE_LATEST
 
 app = Flask(__name__)
 
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.1.0"
 
 REQUEST_COUNT = Counter(
     "app_http_requests_total",
@@ -26,7 +26,7 @@ def home():
     return jsonify({
         "application": "GitOps AKS Demo",
         "version": APP_VERSION,
-        "message": "Application is running successfully"
+        "message": "GitOps deployment v1.1.0 is running successfully"
     })
 
 

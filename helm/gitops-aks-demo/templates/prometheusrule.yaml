@@ -1,0 +1,21 @@
+{{- if .Values.monitoring.alerts.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ include "gitops-aks-demo.fullname" . }}
+  labels:
+    release: kube-prometheus-stack
+spec:
+  groups:
+    - name: gitops-aks-demo
+      rules:
+        - alert: GitOpsAksDemoInsufficientReplicas
+          expr: kube_deployment_status_replicas_available{namespace="default",deployment="{{ include "gitops-aks-demo.fullname" . }}"} < {{ .Values.replicaCount }}
+          for: 2m
+          labels:
+            severity: warning
+            app: gitops-aks-demo
+          annotations:
+            summary: "GitOps AKS Demo has insufficient replicas"
+            description: "The GitOps AKS Demo deployment has fewer available replicas than expected."
+{{- end }}

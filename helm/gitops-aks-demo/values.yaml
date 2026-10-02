@@ -26,3 +26,5 @@ probes:
 monitoring:
   serviceMonitor:
     enabled: true
+  alerts:
+    enabled: true

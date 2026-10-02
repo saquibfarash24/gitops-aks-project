@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: ghcr.io/saquibfarash24/gitops-aks-demo
   pullPolicy: IfNotPresent
-  tag: "194f44e5eec4506666724c84460ded4a0399a1fc"
+  tag: "0a345e2933a890130a33c33b75aa45b0c3ea0894"
 
 service:
   type: ClusterIP
